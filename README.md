@@ -87,7 +87,7 @@ The accompanying output files contain the unedited responses returned by the pub
 
 A proposed fix is required, but no owner was assigned and “before Friday” does not identify a specific date.
 
-![Blocked verdict](media/03-blocked-verdict.png)
+![CommitLens BLOCKED execution audit](media/04-blocked-full-output.png)
 
 **Result**
 
@@ -104,7 +104,7 @@ Verdict Code: BLOCKED
 
 Several support-volume ideas were discussed, but no option or next step was selected. CommitLens preserves them as suggestions instead of inventing assigned work.
 
-![Brainstorming verdict](media/05-brainstorming-verdict.png)
+![CommitLens BRAINSTORMING execution audit](media/06-brainstorming-full-output.png)
 
 **Result**
 
@@ -121,7 +121,7 @@ Verdict Code: BRAINSTORMING
 
 Every active action has an explicit owner, deadline, dependency, and measurable completion condition.
 
-![Ready verdict](media/07-ready-verdict.png)
+![CommitLens READY execution audit](media/08-ready-full-output.png)
 
 **Result**
 
