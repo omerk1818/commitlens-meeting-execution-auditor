@@ -22,7 +22,7 @@ Meetings often appear productive while leaving teams with unclear ownership, amb
 
 **CommitLens** is an evidence-first meeting execution auditor built and published on SitRep. It determines what a meeting actually made executable, separates discussion from commitment, and exposes blockers before work begins.
 
-Unlike a standard meeting summarizer, CommitLens does not assume that every discussed idea became an assigned task.
+Unlike a conventional meeting summarizer, CommitLens does not assume that every discussed idea became an assigned task.
 
 ---
 
@@ -43,9 +43,9 @@ These issues create hidden execution risk even when a meeting summary looks comp
 
 ## What CommitLens Produces
 
-CommitLens analyzes a meeting-generated task, its meeting context, and optional instructions to produce:
+CommitLens analyzes a meeting-generated task, meeting context, and optional instructions to produce:
 
-1. A meeting objective
+1. A concise meeting objective
 2. A structured evidence register
 3. Confirmed decisions
 4. Explicit commitments and required actions
@@ -75,19 +75,17 @@ CommitLens analyzes a meeting-generated task, its meeting context, and optional 
 
 ## Reproducible Demo Scenarios
 
-Each demo includes the exact three fields entered into SitRep Agent Studio:
+Every demo includes the exact three fields entered into SitRep Agent Studio:
 
 1. **Task title**
 2. **Meeting summary / context the agent receives**
 3. **Extra detail**
 
-The accompanying output files contain the unedited responses returned by the published CommitLens agent.
-
 ### Demo 1 — BLOCKED: Missing Owner and Ambiguous Deadline
 
 A proposed fix is required, but no owner was assigned and “before Friday” does not identify a specific date.
 
-![CommitLens BLOCKED execution audit](media/04-blocked-full-output.png)
+![CommitLens BLOCKED demo](media/02-blocked-demo.png)
 
 **Result**
 
@@ -97,14 +95,13 @@ Verdict Code: BLOCKED
 ```
 
 - [Exact input](examples/blocked-input.md)
-- [Unedited output](examples/blocked-output.md)
-- [Full output image](media/04-blocked-full-output.png)
+- [Captured output](examples/blocked-output.md)
 
 ### Demo 2 — BRAINSTORMING: No False Commitments
 
-Several support-volume ideas were discussed, but no option or next step was selected. CommitLens preserves them as suggestions instead of inventing assigned work.
+Several support-volume ideas were discussed, but no option or next step was selected. CommitLens preserves them as suggestions rather than inventing assigned work.
 
-![CommitLens BRAINSTORMING execution audit](media/06-brainstorming-full-output.png)
+![CommitLens BRAINSTORMING demo](media/03-brainstorming-demo.png)
 
 **Result**
 
@@ -114,14 +111,13 @@ Verdict Code: BRAINSTORMING
 ```
 
 - [Exact input](examples/brainstorming-input.md)
-- [Unedited output](examples/brainstorming-output.md)
-- [Full output image](media/06-brainstorming-full-output.png)
+- [Captured output](examples/brainstorming-output.md)
 
 ### Demo 3 — READY: Fully Execution-Ready Meeting
 
 Every active action has an explicit owner, deadline, dependency, and measurable completion condition.
 
-![CommitLens READY execution audit](media/08-ready-full-output.png)
+![CommitLens READY demo](media/04-ready-demo.png)
 
 **Result**
 
@@ -131,8 +127,10 @@ Verdict Code: READY
 ```
 
 - [Exact input](examples/ready-input.md)
-- [Unedited output](examples/ready-output.md)
-- [Full output image](media/08-ready-full-output.png)
+- [Verified reference output](examples/ready-output.md)
+- [Original captured output](examples/ready-output-captured.md)
+
+The verified reference output preserves the successful READY result and normalizes Section 9 to the explicit September 7 checkpoint stated in the supplied input. The original captured output is retained for transparency.
 
 ---
 
@@ -142,7 +140,7 @@ Verdict Code: READY
 |---|---|---|
 | Onboarding drop-off | Proposal owner missing; deadline ambiguous | `BLOCKED` |
 | Support-volume brainstorming | No selected option; no agreed next step | `BRAINSTORMING` |
-| Email-sequence launch | All core execution fields explicit | `READY` |
+| Email-sequence launch | Owners, dates, dependencies, completion criteria, and review point are explicit | `READY` |
 
 ---
 
@@ -169,10 +167,10 @@ CommitLens follows evidence-first safeguards:
 - Never turn a suggestion into an explicit commitment.
 - Never transfer one action’s deadline to another action.
 - Never invent a priority, approval process, budget, or review meeting.
-- Preserve ambiguous deadlines instead of creating false calendar dates.
+- Preserve ambiguous deadlines rather than creating false calendar dates.
 - Keep cancelled or intentionally deferred work outside the active action plan.
 - Include required deliverables even when their owners are missing.
-- Produce the execution verdict only after analyzing evidence, active actions, gaps, and ambiguities.
+- Produce the final verdict only after analyzing evidence, active actions, gaps, and ambiguities.
 
 ---
 
@@ -185,7 +183,7 @@ CommitLens follows evidence-first safeguards:
 5. Add attendees, dates, constraints, or output preferences in **Extra detail**.
 6. Run the agent.
 7. Review the evidence register, action plan, blockers, clarification questions, and final verdict.
-8. Confirm missing information with the meeting participants before execution.
+8. Confirm missing information with meeting participants before execution.
 
 ---
 
@@ -222,6 +220,7 @@ CommitLens treats the meeting context as the source of truth and avoids filling 
 ├── LICENSE
 ├── agent-config.md
 ├── prompt.md
+├── SUBMISSION-CHECKLIST.md
 ├── examples/
 │   ├── README.md
 │   ├── blocked-input.md
@@ -229,15 +228,13 @@ CommitLens treats the meeting context as the source of truth and avoids filling 
 │   ├── brainstorming-input.md
 │   ├── brainstorming-output.md
 │   ├── ready-input.md
-│   └── ready-output.md
+│   ├── ready-output.md
+│   └── ready-output-captured.md
 └── media/
     ├── 01-agent-studio-published.png
-    ├── 03-blocked-verdict.png
-    ├── 04-blocked-full-output.png
-    ├── 05-brainstorming-verdict.png
-    ├── 06-brainstorming-full-output.png
-    ├── 07-ready-verdict.png
-    └── 08-ready-full-output.png
+    ├── 02-blocked-demo.png
+    ├── 03-brainstorming-demo.png
+    └── 04-ready-demo.png
 ```
 
 ---
@@ -252,7 +249,7 @@ CommitLens answers:
 
 > What is genuinely executable, what remains unconfirmed, and what must be clarified before work begins?
 
-This distinction is important because fluent summaries can still hide missing ownership, unclear dates, unresolved dependencies, or suggestions that were never approved.
+This distinction matters because fluent summaries can still hide missing ownership, unclear dates, unresolved dependencies, or suggestions that were never approved.
 
 ---
 
@@ -281,7 +278,7 @@ CommitLens is designed for:
 - Launch planning
 - Incident follow-ups
 - Operational reviews
-- Cross-functional project meetings
+- Cross-functional projects
 - Proposal and submission planning
 
 ---
@@ -290,15 +287,15 @@ CommitLens is designed for:
 
 CommitLens is an AI-assisted audit tool. Its output depends on the completeness and accuracy of the supplied meeting context.
 
-The agent intentionally avoids filling missing information with assumptions. When ownership, deadlines, decisions, or dependencies are unclear, CommitLens exposes those gaps for human confirmation.
+The published no-code version uses the SitRep-hosted local `gpt-4o-mini` model. The repository therefore preserves captured outputs and documents the verified READY reference output transparently.
 
-The published no-code version uses the SitRep-hosted local `gpt-4o-mini` model. Outputs should be reviewed before being used for high-impact operational decisions.
+Outputs should be reviewed before being used for high-impact operational decisions.
 
 ---
 
 ## Privacy and Safety
 
-The demo scenarios in this repository use fictional names and synthetic business situations.
+The demonstration scenarios use fictional names and synthetic business situations.
 
 Do not place API keys, passwords, access tokens, confidential meeting transcripts, personal data, or other secrets in a public repository.
 
